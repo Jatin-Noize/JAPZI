@@ -3,6 +3,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { David_Libre } from "next/font/google";
+import Image from "next/image";
+import logo from "../../../app/images/logo.png"
+const david = David_Libre({
+  subsets:["latin"],
+  weight:"400"
+})
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -42,18 +49,31 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link href="#home" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center glow-effect">
-                <span className="text-white font-bold text-xl">JT</span>
-              </div>
-              <span className="text-xl md:text-2xl font-bold gradient-text">
-                JAPZI TECHZ
-              </span>
-            </Link>
+           <Link
+  href="#home"
+  className="flex items-center gap-3 focus:outline-none"
+>
+  {/* Logo container */}
+  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center glow-effect">
+    <Image
+      src={logo}
+      alt="JAPZI TECHZ Logo"
+      width={48}
+      height={48}
+      className="object-contain"
+      priority
+    />
+  </div>
+
+  {/* Brand text */}
+  <span className="text-xl md:text-2xl font-bold gradient-text">
+    JAPZI TECHZ
+  </span>
+</Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className={`hidden lg:flex items-center space-x-1 $ `}>
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -77,7 +97,7 @@ export default function Navbar() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7, duration: 0.5 }}
-            className="hidden lg:block"
+            className={`hidden lg:block ${david.className} `}
           >
             <Link
               href="#contact"

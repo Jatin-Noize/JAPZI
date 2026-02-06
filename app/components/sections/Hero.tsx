@@ -3,6 +3,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import { Oswald, Exo_2, Syne } from "next/font/google";
+
+const oswald = Oswald({ subsets: ["latin"] });
+const orbitron = Exo_2({subsets: ["latin"],
+  weight : "400"
+})
+const syne = Syne({
+  subsets: ["latin"],
+  weight:"400"
+})
 
 export default function Hero() {
   const ref = useRef(null);
@@ -18,7 +28,7 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-16 `}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 z-0">
@@ -60,8 +70,9 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-8"
+            className={`inline-flex items-center space-x-2 glass px-4 py-2 rounded-full  mb-8 `}
           >
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             <span className="text-sm text-gray-300">Empowering Innovation Since 2020</span>
@@ -72,7 +83,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${orbitron.className} `}
           >
             Transform Your Business with{" "}
             <span className="gradient-text">
@@ -85,7 +96,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto"
+            className={`text-lg sm:text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto ${syne.className} `}
           >
             We deliver cutting-edge software development, cloud infrastructure, 
             cybersecurity, and digital transformation services that propel your 

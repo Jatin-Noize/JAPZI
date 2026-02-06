@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import logo from "../../../app/images/logo.png"
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -50,9 +52,17 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
             >
               <Link href="#home" className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center glow-effect">
-                  <span className="text-white font-bold text-xl">JT</span>
-                </div>
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center glow-effect">
+    <Image
+      src={logo}
+      alt="JAPZI TECHZ Logo"
+      width={48}
+      height={48}
+      className="object-contain"
+      priority
+    />
+  </div>
+
                 <span className="text-xl font-bold gradient-text">
                   JAPZI TECHZ
                 </span>
